@@ -21,7 +21,28 @@
         <module>gn-gateway</module>
     </modules>
 
+    <packaging>pom</packaging>
+
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
+    <!--
+                1.type:pom 和 scope: import 配合使用
+                2.表示父项目的子模块,在引入 springboot 相关依赖时,锁定版本为 2.2.2.RELEASE
+                3.通过 pom + import 解决maven单继承机制
+                4. 子模块之间可以多继承
+                -->
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>2.3.10.RELEASE</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
