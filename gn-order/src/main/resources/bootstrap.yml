@@ -1,0 +1,16 @@
+server:
+  port: 8877
+spring:
+  application:
+    name: gn-order
+  profiles:
+    active: dev
+  cloud:
+    nacos:
+      config:
+        server-addr:  127.0.0.1:8848
+        file-extension: yml
+        namespace:  f9dc8e96-f140-4c3a-969d-79f6282de5a9
+      discovery:
+        server-addr:  127.0.0.1:8848
+        namespace:  f9dc8e96-f140-4c3a-969d-79f6282de5a9
